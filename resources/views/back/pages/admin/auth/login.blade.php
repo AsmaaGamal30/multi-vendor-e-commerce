@@ -17,6 +17,15 @@
                 </div>
             @endif
 
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
             <div class="input-group custom">
                 <input type="text" class="form-control form-control-lg" placeholder="Email/Username" name="login_id"
                     value="{{ old('login_id') }}">
@@ -53,7 +62,7 @@
                 </div>
                 <div class="col-6">
                     <div class="forgot-password">
-                        <a href="forgot-password.html">Forgot Password</a>
+                        <a href="{{ route('admin.forget-password') }}">Forgot Password</a>
                     </div>
                 </div>
             </div>
